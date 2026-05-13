@@ -5,7 +5,7 @@ const verifyToken = (req, res, next) => {
     const authHeader = req.header('Authorization');
 
     if(!authHeader){
-        res.status(401).json({message:"Access denied"})
+        return res.status(401).json({message:"Access denied"})
     }
     try{
         const token = authHeader.split(" ")[1];

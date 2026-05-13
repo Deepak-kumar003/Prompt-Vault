@@ -22,7 +22,7 @@ router.post('/register', async (req,res) => {
     }
 });
 
-router.post("/login", verifyToken, async (req, res) => {
+router.post("/login", async (req, res) => {
     try{
         const {email, password} = req.body;
 
