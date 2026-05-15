@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@theme {
+  --color-vault-bg: #09090b;
+  --color-vault-card: #121214;
+  --color-vault-border: #27272a;
+  --color-vault-primary: #00e5bf;
+  --color-vault-primaryHover: #00c4a3;
+  --color-vault-textMain: #f8fafc;
+  --color-vault-textMuted: #a1a1aa;
+  
+  /* Setting up your fonts */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Georgia", serif;
+}

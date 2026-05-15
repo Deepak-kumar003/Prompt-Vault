@@ -5,11 +5,13 @@ const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
     try {
       const response = await fetch('http://localhost:5000/api/auth/register', {
         method: 'POST',
@@ -24,27 +26,28 @@ const Register = () => {
       if (response.ok) {
         navigate('/login');
       } else {
-        console.log("Registration failed:", data.message);
+        setError(data.message);
       }
     } catch (err) {
-      console.log("Server connection error:", err.message);
+      setError(`Cannot connect to the server. ${err.message}`);
     }
   };
 
   return (
-    // Outer canvas: fills screen, centers content, light gray background
     <div className="min-h-screen bg-vault-bg flex items-center justify-center p-4">
       
-      {/* The White Card */}
       <div className="bg-vault-card border border-vault-border rounded-xl w-full max-w-md p-8">
         <h2 className="text-2xl font-bold text-vault-textMain text-center mb-8">
           Create an Account
         </h2>
+
+        {error && (
+          <div className="p-3 text-sm text-red-700 bg-red-100 rounded m-4">
+            {error}
+          </div>
+        )}
         
-        {/* Fixed: Pass function reference, don't execute immediately */}
         <form onSubmit={handleSubmit} className="space-y-5">
-          
-          {/* Name Input Group */}
           <div>
             <label className="block text-sm font-medium text-vault-textMuted mb-1">
               Name
@@ -54,12 +57,10 @@ const Register = () => {
               required
               className="w-full px-4 py-2 bg-vault-bg border border-vault-border rounded-md text-vault-textMain focus:outline-none focus:border-vault-primary focus:ring-1 focus:ring-vault-primary transition-colors"
               placeholder="Enter your Name"
-              value={name} // Fixed: Added value back for controlled input
+              value={name} 
               onChange={(e) => setName(e.target.value)} 
             />
           </div>
-
-          {/* Email Input Group */}
           <div>
             <label className="block text-sm font-medium text-vault-textMuted mb-1">
               Email
@@ -69,12 +70,10 @@ const Register = () => {
               required
               className="w-full px-4 py-2 bg-vault-bg border border-vault-border rounded-md text-vault-textMain focus:outline-none focus:border-vault-primary focus:ring-1 focus:ring-vault-primary transition-colors"
               placeholder="Enter your Email address"
-              value={email} // Fixed: Added value back
+              value={email} 
               onChange={(e) => setEmail(e.target.value)} 
             />
           </div>
-
-          {/* Password Input Group */}
           <div>
             <label className="block text-sm font-medium text-vault-textMuted mb-1">
               Password
@@ -84,12 +83,10 @@ const Register = () => {
               required
               className="w-full px-4 py-2 bg-vault-bg border border-vault-border rounded-md text-vault-textMain focus:outline-none focus:border-vault-primary focus:ring-1 focus:ring-vault-primary transition-colors"
               placeholder="Enter your Password"
-              value={password} // Fixed: Added value back
+              value={password} 
               onChange={(e) => setPassword(e.target.value)} 
             />
           </div>
-
-          {/* Submit Button */}
           <button 
             type="submit" 
             className="w-full bg-vault-primary hover:bg-vault-primaryHover text-black font-semibold py-2.5 rounded-md transition-colors mt-4"
