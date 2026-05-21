@@ -20,7 +20,7 @@ const Playground = () => {
         const data = await response.json();
         if (response.ok) {
           setPrompt(data);
-          extractVariables(data.content || data.description);
+          extractVariables(data.promptTemplate || data.description);
         }
       } catch (err) {
         console.error("Failed to fetch prompt");
@@ -47,7 +47,7 @@ const Playground = () => {
   const handleVariableChange = (varName, value) => {
     const newVars = { ...variables, [varName]: value };
     setVariables(newVars);
-    updateCompiledText(prompt.content || prompt.description, newVars);
+    updateCompiledText(prompt.promptTemplate || prompt.description, newVars);
   };
 
   // 4. Replaces {{variables}} with typed values
@@ -150,7 +150,7 @@ const Playground = () => {
                   </button>
                 </div>
                 
-                <div className="bg-vault-bg border border-vault-border rounded-lg p-4 min-h-[300px] whitespace-pre-wrap font-sans text-sm leading-relaxed">
+                <div className="bg-vault-bg border border-vault-border rounded-lg p-4 min-h-75 whitespace-pre-wrap font-sans text-sm leading-relaxed">
                   {compiledText}
                 </div>
               </div>

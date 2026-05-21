@@ -134,7 +134,7 @@ const Dashboard = () => {
                                 <h2 className="text-lg font-bold flex items-center gap-2 mb-4">
                                     <span className="text-yellow-500 text-base">☆</span> Favorites
                                 </h2>
-                                <div className="bg-vault-card border border-vault-border rounded-xl p-5 min-h-[300px]">
+                                <div className="bg-vault-card border border-vault-border rounded-xl p-5 min-h-75">
                                     <p className="text-vault-textMuted text-sm">Favorites list coming soon...</p>
                                 </div>
                             </div>
