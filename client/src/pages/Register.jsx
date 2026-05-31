@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -24,7 +24,7 @@ const Register = () => {
       const data = await response.json();
 
       if (response.ok) {
-        navigate('/login');
+        navigate('/dashboard');
       } else {
         setError(data.message);
       }
@@ -35,7 +35,7 @@ const Register = () => {
 
   return (
     <div className="min-h-screen bg-vault-bg flex items-center justify-center p-4">
-      
+
       <div className="bg-vault-card border border-vault-border rounded-xl w-full max-w-md p-8">
         <h2 className="text-2xl font-bold text-vault-textMain text-center mb-8">
           Create an Account
@@ -46,7 +46,7 @@ const Register = () => {
             {error}
           </div>
         )}
-        
+
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label className="block text-sm font-medium text-vault-textMuted mb-1">
@@ -57,8 +57,8 @@ const Register = () => {
               required
               className="w-full px-4 py-2 bg-vault-bg border border-vault-border rounded-md text-vault-textMain focus:outline-none focus:border-vault-primary focus:ring-1 focus:ring-vault-primary transition-colors"
               placeholder="Enter your Name"
-              value={name} 
-              onChange={(e) => setName(e.target.value)} 
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div>
@@ -70,8 +70,8 @@ const Register = () => {
               required
               className="w-full px-4 py-2 bg-vault-bg border border-vault-border rounded-md text-vault-textMain focus:outline-none focus:border-vault-primary focus:ring-1 focus:ring-vault-primary transition-colors"
               placeholder="Enter your Email address"
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
@@ -83,17 +83,23 @@ const Register = () => {
               required
               className="w-full px-4 py-2 bg-vault-bg border border-vault-border rounded-md text-vault-textMain focus:outline-none focus:border-vault-primary focus:ring-1 focus:ring-vault-primary transition-colors"
               placeholder="Enter your Password"
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="w-full bg-vault-primary hover:bg-vault-primaryHover text-black font-semibold py-2.5 rounded-md transition-colors mt-4"
           >
             Sign Up
           </button>
-          
+
+          <div className="mt-6 text-center text-sm text-vault-textMuted">
+            Already have an account?{' '}
+            <Link to="/login" className="text-vault-primary hover:text-vault-primaryHover hover:underline font-medium transition-colors">
+              Log in
+            </Link>
+          </div>
         </form>
       </div>
     </div>

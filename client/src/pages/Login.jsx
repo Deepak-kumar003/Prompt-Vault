@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -25,7 +25,7 @@ const Login = () => {
 
             if (response.ok) {
                 localStorage.setItem('token', data.token);
-                navigate('/');
+                navigate('/dashboard');
             } else {
                 setError(data.message);
             }
@@ -69,10 +69,17 @@ const Login = () => {
                             onChange={(e) => { setPassword(e.target.value) }}
                         />
                     </div>
-                    <button 
-                    type="submit"
-                    className="w-full bg-vault-primary hover:bg-vault-primaryHover text-black font-semibold py-2.5 rounded-md transition-colors mt-4"
+                    <button
+                        type="submit"
+                        className="w-full bg-vault-primary hover:bg-vault-primaryHover text-black font-semibold py-2.5 rounded-md transition-colors mt-4"
                     >Sign In</button>
+
+                    <div className="mt-6 text-center text-sm text-vault-textMuted">
+                        Don't have an account?{' '}
+                        <Link to="/register" className="text-vault-primary hover:text-vault-primaryHover hover:underline font-medium transition-colors">
+                            Sign up
+                        </Link>
+                    </div>
                 </form>
             </div>
         </div>

@@ -5,6 +5,18 @@ const User = require('../models/User')
 const Prompt = require('../models/Prompt')
 const router = express.Router()
 
+router.get('/', async (req, res) => {
+    try {
+        // .find() with no arguments gets every single prompt in the collection
+        // .sort({ createdAt: -1 }) puts the newest ones at the top!
+        const allPrompts = await Prompt.find().sort({ createdAt: -1 });
+        
+        res.status(200).json(allPrompts);
+    } catch (err) {
+        res.status(500).json({ message: `Error fetching library prompts: ${err.message}` });
+    }
+});
+
 router.post('/create', verifyToken, async (req, res) => {
 
     try {

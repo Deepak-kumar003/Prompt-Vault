@@ -11,8 +11,7 @@ const SideBar = () => {
       </div>
 
       <div className="flex-1 flex flex-col p-4 overflow-y-auto">
-        <div className="relative mb-6">
-          {/*SVG magnifying glass icon from ai*/}
+        {/* <div className="relative mb-6">
           <svg className="absolute left-3 top-2.5 h-4 w-4 text-vault-textMuted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
@@ -24,10 +23,10 @@ const SideBar = () => {
           <div className="absolute right-2 top-2 flex items-center justify-center border border-vault-border rounded bg-vault-card px-1.5 py-0.5">
             <span className="text-[10px] text-vault-textMuted font-mono">Ctrl K</span>
           </div>
-        </div>
+        </div> */}
 
         <nav className="flex flex-col gap-1">
-          <Link to="/" className="px-3 py-2 rounded-md bg-vault-card text-vault-primary font-medium transition-colors">
+          <Link to="/dashboard" className="px-3 py-2 rounded-md bg-vault-card text-vault-primary font-medium transition-colors">
             Dashboard
           </Link>
           <Link to="/library" className="px-3 py-2 rounded-md text-vault-textMuted hover:bg-vault-card hover:text-vault-textMain font-medium transition-colors">

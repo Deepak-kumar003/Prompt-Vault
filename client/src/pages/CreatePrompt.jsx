@@ -110,7 +110,7 @@ const CreatePrompt = () => {
 
             <div className="flex justify-between items-center mb-8">
               <div>
-                <h1 className="text-2xl font-bold">Create Prompt</h1>
+                {/* <h1 className="text-2xl font-bold">Create Prompt</h1> */}
                 <p className="text-vault-textMuted text-sm">Design your parameterized prompt template</p>
               </div>
               <div className="flex gap-4">
