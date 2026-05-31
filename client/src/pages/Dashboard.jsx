@@ -21,7 +21,7 @@ const Dashboard = () => {
             }
 
             try {
-                const response = await fetch("http://localhost:5000/api/prompts/my-prompts", {
+                const response = await fetch("https://prompt-vault-vxg1.onrender.com/api/prompts/my-prompts", {
                     method: "GET",
                     headers: {
                         "Authorization": `Bearer ${token}`

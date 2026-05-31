@@ -61,7 +61,7 @@ const CreatePrompt = () => {
     const token = localStorage.getItem('token');
 
     try {
-      const response = await fetch('http://localhost:5000/api/prompts/create', {
+      const response = await fetch('https://prompt-vault-vxg1.onrender.com/api/prompts/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ const CreatePrompt = () => {
         setCopied(false)
       }, 2000);
 
-      await fetch(`http://localhost:5000/api/prompts/:id/copy`, {
+      await fetch(`https://prompt-vault-vxg1.onrender.com/api/prompts/:id/copy`, {
         method: 'POST'
       })
     }

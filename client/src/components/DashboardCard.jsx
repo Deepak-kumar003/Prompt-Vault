@@ -28,7 +28,7 @@ const DashboardCard = ({ prompt }) => {
         setTimeout(() => setCopied(false), 2000);
 
         try {
-            await fetch(`http://localhost:5000/api/prompts/${prompt._id}/copy`, {
+            await fetch(`https://prompt-vault-vxg1.onrender.com/api/prompts/${prompt._id}/copy`, {
                 method: 'POST',
             });
         } catch (err) {

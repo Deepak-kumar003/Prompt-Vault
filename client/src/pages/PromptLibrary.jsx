@@ -14,7 +14,7 @@ const PromptLibrary = () => {
     const fetchAllPrompts = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await fetch('http://localhost:5000/api/prompts', {
+        const response = await fetch('https://prompt-vault-vxg1.onrender.com/api/prompts', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const data = await response.json();
